@@ -43,3 +43,17 @@ volumes:
 <role rolename="admin-script"/>
 <user username="admin" password="1234" roles="manager-gui,manager-script,admin-gui,admin-script"/>
 </tomcat-users>
+
+**********************
+docker pull redis
+docker run --name redis-server -d redis
+docker exec -it redis-server redis-cli
+docker ps
+docker ps -a
+docker images
+
+docker volume ls
+docker volume create redis-data
+docker volume inspect redis-data
+docker volume rm redis-data
+
