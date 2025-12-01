@@ -57,3 +57,9 @@ docker volume create redis-data
 docker volume inspect redis-data
 docker volume rm redis-data
 
+docker run -d --name redis-server -p 6379:6379 -v redis-data:/data redis
+
+docker network ls
+docker network create mynetwork
+docker network connect mynetwork webserver
+docker network disconnect mynetwork webserver
