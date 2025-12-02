@@ -52,26 +52,28 @@ docker pull jasonrivers/nagios:latest
 docker run --name nagiosdemo -p 8888:80 jasonrivers/nagios:latest
 docker stop nagiosdemo
 docker rm nagiosdemo
+*********************************************
+version: '3.8' 
+services:
+  wordpress:  
+    image: wordpress:latest
+    ports:
+      - "6767:80"  
+    environment:
+      WORDPRESS_DB_HOST: db:3306 
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    depends_on:
+      - db  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- w11***********************************************************8
-
-cmd:(8080 jenkin url)
-ngrok http 8080
-
-https://abc123.ngrok.io/github-webhook/
+  db: 
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
 
  w12 ***************************************************************8
 
@@ -93,4 +95,5 @@ cmds:
 sudo docker build -t mywebapp .
 sudo docker run -d -p 6060:8080 mywebapp
 sudo docker ps
+
 
